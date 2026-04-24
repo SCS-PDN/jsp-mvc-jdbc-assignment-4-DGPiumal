@@ -1,14 +1,16 @@
 package com.university.controller;
 
-import com.university.dao.CourseDAO;
-import com.university.model.Student;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import javax.servlet.http.HttpSession;
+
+import com.university.dao.CourseDAO;
+import com.university.model.Student;
 
 
 @Controller
@@ -30,8 +32,8 @@ public class CourseController {
         return "courses";
     }
     
-    @PostMapping("/courses/register/{courseId}")
-    public String registerCourse(@PathVariable int courseId,HttpSession session,Model model)
+    @PostMapping("/register/{courseId}")
+    public String registerCourse(@PathVariable("courseId") int courseId,HttpSession session,Model model)
     {
         Student student = (Student) session.getAttribute("student");
 
