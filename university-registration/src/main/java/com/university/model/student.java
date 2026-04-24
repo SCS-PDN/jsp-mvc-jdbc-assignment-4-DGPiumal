@@ -1,6 +1,6 @@
 package com.university.model;
 
-public class student {
+public class Student {
     private int studentId;
     private String name;
     private String email;
